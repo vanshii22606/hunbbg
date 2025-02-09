@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.app.goo.gl/cuXgpMMBT9V7LPBh6') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background 0.5s ease-in-out;
+        }
+        .popup {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .yes { background: #ff4d79; color: white; }
+        .yes:hover { background: #ff1a4d; }
+        .no { background: #444; color: white; position: absolute; }
+    </style>
+</head>
+<body>
+    <div class="popup" id="popup">
+        <h2>Will You Be My Valentine? 💖</h2>
+        <div class="buttons">
+            <button class="yes" onclick="answerYes()">Yes</button>
+            <button class="no" id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function answerYes() {
+            document.body.style.background = "url('https://pin.it/1ha9pYXtk') no-repeat center center/cover";
+            document.getElementById('popup').innerHTML = '<h2>Yay! 🥰 I love you! ❤️</h2>';
+        }
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const maxX = window.innerWidth - button.clientWidth;
+            const maxY = window.innerHeight - button.clientHeight;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+        }
+    </script>
+</body>
+</html>
